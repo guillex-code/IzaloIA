@@ -1,0 +1,297 @@
+/* ===================== */
+/* Paleta y variables    */
+/* ===================== */
+:root {
+  --color-bg-dark-1: #001f4d;
+  --color-bg-dark-2: #355c7d;
+  --color-accent-1: #ffc300;
+  --color-accent-2: #ffde59;
+
+  --color-bg-light-1: #e0f0ff;
+  --color-bg-light-2: #f7f3c6;
+  --color-bg-light-3: #fff8a6;
+
+  --color-dark-text: #e0e0e0;
+  --color-light-text: #222222;
+  --color-btn-bg: var(--color-accent-1);
+  --color-btn-bg-hover: var(--color-accent-2);
+  --font-main: 'Inter', Arial, sans-serif;
+}
+
+/* ===================== */
+/* Reset y base          */
+/* ===================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-dark-1) 0%,
+    var(--color-bg-dark-2) 50%,
+    var(--color-accent-1) 85%,
+    var(--color-accent-2) 100%
+  );
+  color: var(--color-dark-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.5s;
+}
+
+body.light {
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-light-1) 0%,
+    var(--color-bg-light-2) 50%,
+    var(--color-bg-light-3) 100%
+  );
+  color: var(--color-light-text);
+}
+
+/* ===================== */
+/* Header y navegación   */
+/* ===================== */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: inherit;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+  backdrop-filter: blur(10px);
+}
+body {
+  padding-top: 80px;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-accent-2);
+  text-decoration: none;
+  cursor: pointer;
+  font-family: var(--font-main);
+  letter-spacing: 0.03em;
+}
+
+body.light .logo {
+  color: var(--color-bg-dark-1);
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2.5rem;
+  justify-content: flex-end;
+  width: 36%;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-dark-text);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+  font-family: var(--font-main);
+}
+
+body.light .nav-links a {
+  color: var(--color-bg-dark-1);
+}
+
+.nav-links a.active,
+.nav-links a:hover,
+.nav-links a:focus {
+  color: var(--color-accent-1);
+  text-shadow: 0 1px 8px var(--color-accent-2);
+  font-weight: 700;
+  outline: none;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Botón acceder */
+.btn-access {
+  font-weight: 900;
+  color: var(--color-bg-dark-1);
+  background: linear-gradient(90deg, var(--color-accent-1) 0%, var(--color-accent-2) 100%);
+  border: 2px solid var(--color-accent-2);
+  padding: 0.6rem 1.5rem;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.25), 0 1px 2px var(--color-accent-2);
+  box-shadow: 0 4px 16px 0 rgba(255, 215, 0, 0.35), 0 1px 8px 0 rgba(255, 195, 0, 0.18);
+  margin: 0 auto;
+  animation: pulse-btn 1.2s infinite alternate;
+  font-family: var(--font-main);
+}
+
+.btn-access:hover,
+.btn-access:focus {
+  background: var(--color-accent-2);
+  color: var(--color-bg-dark-1);
+  outline: none;
+  transform: scale(1.04);
+}
+
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-accent-2);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+
+/* ===================== */
+/* Hero centrado y grande*/
+/* ===================== */
+.vlog-hero {
+  text-align: center;
+  margin: 0 auto 3rem auto;
+  max-width: 700px;
+  padding: 3.5rem 1rem 2.5rem 1rem;
+}
+
+.vlog-hero h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--color-accent-1);
+  margin-bottom: 1.2rem;
+  line-height: 1.1;
+}
+
+.vlog-hero p {
+  font-size: 1.4rem;
+  color: var(--color-accent-2);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+
+/* ===================== */
+/* Modo claro */
+/* ===================== */
+body.light .vlog-card {
+  background: rgba(0, 31, 77, 0.06);
+  box-shadow: 0 4px 24px 0 rgba(0, 31, 77, 0.10);
+}
+
+body.light .vlog-card h2 {
+  color: var(--color-bg-dark-1);
+}
+
+body.light .vlog-card p {
+  color: var(--color-bg-dark-2);
+}
+
+/* ===================== */
+/* Responsive */
+/* ===================== */
+@media (max-width: 900px) {
+  .vlog-card {
+    max-width: 98vw;
+    padding: 1.5rem 1rem;
+    gap: 1.2rem;
+  }
+  .vlog-hero h1 {
+    font-size: 2.2rem;
+  }
+  .vlog-img {
+    width: 140px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 700px) {
+  .vlog-card {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+    padding: 1.2rem 0.5rem;
+  }
+  .vlog-img {
+    width: 100%;
+    height: 180px;
+    max-width: 350px;
+  }
+  .vlog-card-content {
+    align-items: center;
+  }
+}
+
+/* ===================== */
+/* Igualar footer al index */
+/* ===================== */
+footer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 18px 18px 0 0;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--color-accent-2);
+  user-select: none;
+  box-shadow: 0 -2px 12px rgb(0 0 0 / 0.08);
+  font-family: 'Inter', sans-serif;
+}
+
+body.light footer {
+  background-color: var(--color-bg-light-1);
+  color: var(--color-bg-dark-1);
+}
+
+/* ===================== */
+/* Animación botón       */
+/* ===================== */
+@keyframes pulse-btn {
+  0% {
+    box-shadow: 0 4px 16px 0 rgba(255, 215, 0, 0.35), 0 1px 8px 0 rgba(255, 195, 0, 0.18);
+  }
+  100% {
+        box-shadow: 0 8px 32px 0 rgba(255, 215, 0, 0.55), 0 2px 16px;
+      }
+    }
